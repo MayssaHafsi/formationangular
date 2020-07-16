@@ -1,0 +1,72 @@
+<div class="card">
+  <div class="card-header bg-primary text-white">  <h3 style="text-align: center"> {{formation.nom}}</h3>
+    <button type="submit" class="btn btn-danger" (click)="envoyer()">S'inscrire</button>
+  </div>
+
+  <div class="card-body" >
+<div>
+  <fieldset >
+    <legend>Detail</legend>
+    <div class="form-group" style="margin:40px;">
+     <label><h6> Date debut :</h6> <h5> {{formation.datedebut}} </h5></label>
+
+      <label  style="margin-left:368px;"><h6>Date Fin :</h6><h5> {{formation.datefin}} </h5></label>
+    </div>
+
+    <div class="form-group" style="margin:40px;">
+      <label><h6> Date Limite inscription :</h6> <h5> {{formation.dateLimiteInscription}} </h5></label>
+
+      <label  style="margin-left:284px;"><h6>Capacité:</h6><h5> {{formation.capacite}} </h5></label>
+    </div>
+    <div class="form-group" style="margin:40px;">
+      <label><h6> Niveau :</h6> <h5> {{formation.niveau}}</h5></label>
+
+      <label  style="margin-left:400px;"><h6>Type :</h6><h5> {{formation.type}} </h5></label>
+    </div>
+    <div class="form-group" style="margin:40px;">
+      <label><h6>Domaine</h6> <h5> {{formation.domaine.nom}}</h5></label>
+      <label *ngIf="formation.type=='FC'" style="margin-left:390px;"><h6> Date Certification </h6> <h5> {{formation.certificationFormation.dateCertification+' a '+formation.certificationFormation.timeCertification}}</h5></label>
+    </div>
+  </fieldset>
+</div>
+    <div>
+<fieldset>
+  <legend>Formateur</legend>
+
+
+    <ul class="list-group" *ngFor=" let c of listes">
+      <li class="list-group-item">{{c.formateur.nom +' '+c.formateur.prenom}}</li>
+   
+    </ul>
+</fieldset>
+
+    </div>
+
+    <div>
+        <fieldset>
+          <legend>Seance Formation</legend>
+          <ul class="list-group" *ngFor=" let c of liste">
+            <li class="list-group-item">{{c.datejour+' de '+c.heuredebut+'h '+' a '+c.heurefin+'h'}}</li>
+         
+          </ul>
+         
+        </fieldset>
+        
+            </div>
+
+            <div>
+                <fieldset>
+                  <legend>Liste des resource en ligne</legend>
+                  <ul  class="list-group" *ngFor="let file of fileUploads | async">
+                      <li class="list-group-item col-md-4">
+                        <p>
+                        <app-details-upload [fileUpload]='file'  style="margin-right: 50px"></app-details-upload>
+                      </p>
+                      </li>
+                    </ul>
+               
+                </fieldset>
+                
+                    </div>
+  </div>
+</div>

@@ -1,0 +1,118 @@
+<div class="container spacer">
+  <div class="col-lg-13 ">
+    <div class="card">
+      <div class="card-header bg-primary text-white">  <h3 style="text-align: center">Affectation Seance Formation</h3>  </div>
+
+      <div class="card-body">
+      <!--   <h2 style="color: brown; font-size: 2.6rem;">Seance Formation:</h2> --> 
+<div style="margin-left: 120px">
+<strong > Formateur: </strong> <label style="margin-right: 10px">{{ff.formationFormateur.formateur.cin  }} {{ff.formationFormateur.formateur.nom}} {{ff.formationFormateur.formateur.prenom}}</label>
+     <strong>Formation:</strong> <label style="margin-right: 10px">{{ff.formationFormateur.formation.theme.nom }} </label>
+     <strong>Date Debut:</strong> <label style="margin-right: 10px">{{ff.formationFormateur.datedebut | date:'dd-MM-yyyy'}}</label>
+     <strong>Date Fin:</strong> <label>{{ff.formationFormateur.datefin | date:'dd-MM-yyyy'}}</label>
+    </div>
+
+    
+     <div class="input-group">
+      
+    
+        
+     
+        
+        </div>
+        <div class="input-row">
+            <div class="form-group">
+                <label><h6>Date Jour</h6></label>
+                <input type="date" [class.is-invalid]="djr.invalid && djr.touched" class="form-control col-md-4" required #djr="ngModel" [(ngModel)]="ff.datejour"/>
+                <div *ngIf="djr.invalid && (djr.dirty || djr.touched)">
+
+                  <small class="text-danger" *ngIf="djr?.errors.required">
+                    <p>   date jour is required. </p> 
+                  </small>
+                
+            </div>
+      
+              </div>
+        <div class="form-group">
+          <label><h6>Heure Debut</h6></label>
+          <input type="time" [class.is-invalid]="hd.invalid && hd.touched" class="form-control col-md-4" required #hd="ngModel"  style="margin-right: 10px"  [(ngModel)]="ff.heuredebut"/>
+
+          <div *ngIf="hd.invalid && (hd.dirty || hd.touched)">
+
+            <small class="text-danger" *ngIf="hd?.errors.required">
+              <p>   heure debut is required. </p> 
+            </small>
+          
+      </div>
+        </div>
+        <div class="form-group">
+          <label><h6>Heure Fin</h6></label>
+          <input type="time" [class.is-invalid]="hf.invalid && hf.touched" required #hf="ngModel" class="form-control col-md-4"  [(ngModel)]="ff.heurefin"/>
+
+          <div *ngIf="hf.invalid && (hf.dirty || hf.touched)">
+
+            <small class="text-danger" *ngIf="hf?.errors.required">
+              <p>   heure fin is required. </p> 
+            </small>
+          
+      </div>
+
+        </div>
+        <div class="form-group">
+          <label><h6>Salle</h6></label>
+          <input type="text" class="form-control col-md-4"  [(ngModel)]="ff.salle"/>
+
+
+        </div>
+        <button type="submit" [disabled]="djr.invalid || hd.invalid || hf.invalid" class="btn btn-primary col-md-3" style="margin-bottom: 10px" (click)="affecter()">Affecter</button>
+      </div>
+    </div>
+
+
+
+    <table class="table">
+      <thead class="thead-dark">
+      <tr>
+
+        <th scope="col">Theme Formation</th>
+
+        <th scope="col">Date jour</th>
+        <th scope="col">Heure Debut</th>
+        <th scope="col">Heure Fin</th>
+        <th scope="col">Salle</th>
+        <th scope="col">Action</th>
+      </tr>
+      </thead>
+
+
+
+      <tbody>
+      <tr *ngFor=" let c of listes">
+
+        <td> {{c.formationFormateur.formation.theme.nom}}</td>
+
+     
+        <td>{{c.datejour}}</td>
+        <td>{{c.heuredebut}}</td>
+        <td>{{c.heurefin}}</td>
+        <td>{{c.salle}}</td>
+        <td>
+
+          <a (click)="edit(c.id)"   class="btn btn-success" style="margin-top: 0px" ><i class="fa fa-edit" aria-hidden="true"></i></a>
+          <a (click)="delete(c)"  class="btn btn-danger" style="margin-top: 0px" ><i class="fa fa-trash" aria-hidden="true"></i></a>
+         
+         
+        </td>
+
+      </tr>
+      </tbody>
+    </table>
+        
+
+
+
+
+
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,101 @@
+<div class="card">
+  <div class="card-header bg-primary text-white">  <h3 style="text-align: center"> {{formation.nom}} </h3>
+    
+  </div>
+
+  <div class="card-body" >
+<div>
+  <fieldset >
+    <legend>Détail Formation</legend>
+    <div class="form-group" style="margin:40px;">
+      <label><h6> Théme :</h6> <h5> {{formation.theme.nom}} </h5></label>
+ 
+       <label  style="margin-left:390px;"><h6>Nom Formation :</h6><h5> {{formation.nom}} </h5></label>
+     </div>
+    <div class="form-group" style="margin:40px;">
+     <label><h6> Date début :</h6> <h5> {{formation.datedebut}} </h5></label>
+
+      <label  style="margin-left:357px;"><h6>Date Fin :</h6><h5> {{formation.datefin}} </h5></label>
+    </div>
+
+    <div class="form-group" style="margin:40px;">
+      <label><h6> Date Limite inscription :</h6> <h5> {{formation.dateLimiteInscription}} </h5></label>
+
+      <label  style="margin-left:284px;"><h6>Capacité:</h6><h5> {{formation.capacite}} </h5></label>
+    </div>
+    <div class="form-group" style="margin:40px;">
+      <label><h6> Prix :</h6> <h5> {{formation.prix}}</h5></label>
+      <label  style="margin-left:410px;"><h6>Niveau :</h6><h5> {{formation.niveau}} </h5></label>
+    </div>
+    <div class="form-group" style="margin:40px;">
+      <label><h6>Domaine:</h6> <h5> {{formation.domaine.nom}}</h5></label> 
+      
+      <label  style="margin-left:284px;"><h6>Nombre de place reservé</h6> <h5> {{formation.nbrPlaceReserve}}</h5></label>
+    </div>
+    
+  
+
+
+ 
+  </fieldset>
+</div>
+    <div>
+<fieldset>
+  <legend>Formateur</legend>
+  <div class="form-group" style="margin:40px;">
+    
+    <label><h6>  Prénom:</h6> <h5> {{formation.formateur.prenom}} </h5></label>
+
+     <label  style="margin-left:390px;"><h6>Nom:</h6><h5> {{formation.formateur.nom}} </h5></label>
+   </div>
+  <div class="form-group" style="margin:40px;">
+    <label><h6>Cin:</h6> <h5> {{formation.formateur.cin}} </h5></label>
+
+    <label  style="margin-left:390px;"><h6>Email :</h6><h5> {{formation.formateur.email}} </h5></label>
+  </div>
+
+  <div class="form-group" style="margin:40px;">
+    <label><h6> Téléphone :</h6> <h5> {{formation.formateur.numeroTelephone}}</h5></label>
+  </div>
+           
+  </fieldset>
+        
+   </div>
+
+
+<div id="content" #content style="margin-top: 40px">
+            <fieldset>
+                <legend>Liste des Inscrits </legend>
+            
+
+                <ul class="list-group" *ngFor=" let c of listeInscrits" >
+                    <li class="list-group-item col-md-6"> <p> {{c.demandeur.cin+' '+c.demandeur.nom+' '+c.demandeur.prenom }}           <a style="margin-left: 0px" (click)="envoyerAttestation(c.id)"   class="btn btn-success" style="margin-top: 0px" ><i class="fa fa-print" aria-hidden="true"></i></a>
+                  
+                  </p>
+                    </li>
+             
+                  </ul>
+             
+              </fieldset>
+             <!-- <button   class="btn btn-dark" style="margin-top: 10px" (click)="printAttestation()">Print List Inscrits </button> -->           
+</div>
+
+
+<div style="margin-top: 40px">
+    <fieldset>
+        <legend> Liste des Cours en ligne </legend>
+    
+        <ul  class="list-group" *ngFor="let file of fileUploads | async">
+            <li class="list-group-item col-md-4">
+              <p>
+              <app-details-upload [fileUpload]='file'  style="margin-right: 50px"></app-details-upload>
+            </p>
+            </li>
+          </ul>
+     
+      </fieldset>
+          
+</div>
+
+  </div>
+</div>

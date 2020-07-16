@@ -1,0 +1,21 @@
+
+<div style="border: double" id="content" #content >
+  <img src="assets/images/téléchargement.png"  style="width: 150px ; height: 80px" alt="logo" />
+  <img style="margin-left: 80px" src="assets/images/logo-4c.png" alt="logo" style="width: 300px ; height: 70px"/>
+  <img style="margin-left: 80px" src="assets/images/samples/300x300/56f9a9178a9ecd2a08acf2cf_logo-mtc-fsegs.png" alt="logo" style="width: 300px ; height: 70px"/>
+ 
+
+
+  <h1 style="margin-top: 30px">ATTESTATION DE PARTICIPATION</h1>
+
+  <p style="margin-top: 20px">Je soussigné ,Directeur de Centre de Carrière et de Certification des Compétences « 4C » Atteste que: </p>
+
+  <h4 style="margin-left: 20px">Monsieur/Madame : {{formation.demandeur.prenom+' '+formation.demandeur.nom}} </h4>
+  <p>a participé au <strong> {{formation.formationNC.nom}}</strong> sous le theme <strong>  {{formation.formationNC.theme.nom}}</strong> du <strong> {{formation.formationNC.datedebut | date:'dd-MM-yyyy'}} </strong>au <strong>  {{formation.formationNC.datefin | date:'dd-MM-yyyy'}} </strong> .  </p>
+
+  <div class="form-group">
+    <h4 style="margin-left: 40px;margin-top: 30px" class="text-left">le {{dat | date:' EEEE dd-MM-yyyy  hh:mm'}} .</h4>
+  <h4 class="text-center"> Signature:</h4>
+</div>
+</div>
+<button class="btn btn-dark" (click)="printAttestation()">imprimer Attestation </button> 

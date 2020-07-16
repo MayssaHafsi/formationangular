@@ -1,0 +1,17 @@
+
+<div id="content" #content >
+ <h2 style="margin-bottom: 30px;" style="margin-left: 380px">4C FSEG SFAX </h2>
+  
+
+  <legend style="margin-left: 300px">{{formation.nom}} de  {{formation.datedebut | date:'dd-MM-yyyy'}}  a {{ formation.datefin |  date:'dd-MM-yyyy' }}  </legend>
+  <h4>List des Inscrits:</h4>
+ 
+ 
+  <ul class="list-group" *ngFor=" let c of listeInscrits" >
+    <li class="list-group-item col-md-8"> <p> {{c.demandeur.cin+' '+c.demandeur.nom+' '+c.demandeur.prenom }}</p></li>
+
+  </ul>
+
+
+  </div>
+  <button style="margin-top: 20px" class="btn btn-dark" (click)="printInscrit()">Imprimer </button>  

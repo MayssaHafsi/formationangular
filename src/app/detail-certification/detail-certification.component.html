@@ -1,0 +1,82 @@
+<div class="card">
+  <div class="card-header bg-primary text-white">  <h3 style="text-align: center"> {{certification.titre}} </h3>
+    
+  </div>
+
+  <div class="card-body" >
+<div>
+  <fieldset >
+    <legend>Detail</legend>
+    <div class="form-group" style="margin:40px;">
+      <label><h6> Theme :</h6> <h5> {{certification.niveau.themeNiveau.nom}} </h5></label>
+ 
+       <label  style="margin-left:390px;"><h6>Niveau :</h6><h5> {{certification.niveau.nom}} </h5></label>
+     </div>
+    <div class="form-group" style="margin:40px;">
+     <label><h6> Date Certification :</h6> <h5> {{certification.dateCertification}} </h5></label>
+
+      <label  style="margin-left:310px;"><h6>Heure certification :</h6><h5> {{certification.timeCertification}} </h5></label>
+    </div>
+
+    <div class="form-group" style="margin:40px;">
+      <label><h6> Date Limite inscription :</h6> <h5> {{certification.dateLimiteInscription}} </h5></label>
+
+      <label  style="margin-left:276px;"><h6>Capacité:</h6><h5> {{certification.capacite}} </h5></label>
+    </div>
+    <div class="form-group" style="margin:40px;">
+      <label><h6> Lieu :</h6> <h5> {{certification.lieu}}</h5></label>
+
+      <label  style="margin-left:415px;"><h6>Domaine:</h6> <h5> {{certification.domaineCertification.nom}}</h5></label> 
+    </div>
+    <div class="form-group" style="margin:40px;">
+   
+      
+      <label ><h6>Nombre de place reservé</h6> <h5> {{certification.nbrPlaceReserve}}</h5></label>
+    </div>
+   
+  
+
+
+ 
+  </fieldset>
+</div>
+    <div>
+
+
+    </div>
+
+    <div>
+   
+        
+            </div>
+
+
+<div id="content" #content>
+            <fieldset>
+                <legend>Liste des Inscrits</legend>
+                <ul class="list-group" *ngFor=" let c of listeInscrits" >
+                    <li class="list-group-item"> <p> {{c.demandeurCertification.cin+' '+c.demandeurCertification.nom+' '+c.demandeurCertification.prenom }}</p></li>
+             
+                  </ul>
+             
+              </fieldset>
+              
+</div>
+<button *ngIf="listeInscrits.length>0" class="btn btn-dark" (click)="printInscrit()">Print List Inscrit </button>
+
+
+<div style="margin-top: 50px">
+<fieldset>
+  <legend>Liste des Resources  en ligne</legend>
+  <ul  class="list-group" *ngFor="let file of fileUploads | async">
+    <li class="list-group-item col-md-4">
+      <p>
+      <app-detail-upload [fileUpload]='file'  style="margin-right: 50px"></app-detail-upload>
+    </p>
+    </li>
+  </ul>
+
+</fieldset>
+</div>
+  </div>
+</div>

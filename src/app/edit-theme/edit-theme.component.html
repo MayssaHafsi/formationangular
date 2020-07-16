@@ -1,0 +1,19 @@
+<div class="col-xs-6 .col-md-4 ">
+  <div class="card">
+    <div class="card-header bg-primary text-white">  <h3 style="text-align: center">Modification Theme</h3>  </div>
+
+    <div class="card-body">
+
+      <div class="form-group">
+        <label><h6>Nom Théme:</h6></label>
+        <div class="form-row">
+        <input type="text"  [class.is-invalid]="nom.invalid && nom.touched" #nom="ngModel" placeholder="Nom Théme"  [(ngModel)]="theme.nom"   class="form-control col-md-4"    required  style="margin-right: 40px;" >
+        <div *ngIf="nom.invalid && (nom.dirty || nom.touched)">
+
+          <small class="text-danger" *ngIf="nom?.errors.required">
+        <p>   nom is required. </p> 
+          </small>
+        
+    </div>
+        <button type="submit" [disabled]="nom.invalid"    class="btn btn-primary align-content-lg-center col-lg-2"  (click)="edit()">Modifier</button>
+        </div>

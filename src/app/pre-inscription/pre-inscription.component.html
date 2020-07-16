@@ -1,0 +1,75 @@
+
+<div class="container mt-100 ">
+
+  
+  <div class="card-header bg-primary text-white">  <h3 style="text-align: center"> Liste pré-inscriptions </h3>
+
+
+  </div>
+
+  <div class="card-body">
+    <div class="form-group">
+      <div style="margin-bottom: 6px;margin-right: 10px;margin-top: 30px" class="float-right">
+      
+      </div>
+    </div>
+
+
+    <table datatable [dtOptions]="dtOptions" class="row-border hover table table-active table-hover">
+    <thead>
+      <tr>
+        <th class="text-center">Cin</th>
+        <th class="text-center">Nom</th>
+        <th class="text-center">Prénom</th>
+        <th class="text-center">Sexe</th>
+        <th class="text-center">Adresse</th>
+        <th class="text-center">Tel</th>
+        <th class="text-center">Num_carte</th>
+        <th class="text-center">Email</th>
+        <th class="text-center">Password</th>
+        <!-- <th class="text-center" colspan="3">options</th> -->
+        <th>Options</th>
+        
+        
+
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let demandeur of liste?.content;" [id]="demandeur.cin">
+        <td class="text-center">{{ demandeur.cin }}</td>
+        <td class="text-center">{{ demandeur.nom }}</td>
+        <td class="text-center">{{demandeur.prenom}}</td>
+        <td class="text-center">{{demandeur.sexe}}</td>
+
+        <td class="text-center">{{demandeur.adresse}}</td>
+        <td class="text-center">{{ demandeur.numeroTelephone }}</td>
+        <td class="text-center">{{formation.code_carte}}</td>
+        <td class="text-center">{{ formation.email}}</td>
+        <td class="text-center">{{ formation.password }}</td>
+        <td><a (click)="detailDemandeur(demandeur.id)"   class="btn btn-success" title="Détail"><i class="fa fa-search"></i></a>
+        <a (click)="print(demandeur.id)"  class="btn btn-primary" title="modifier"><i class="fa fa-edit"></i></a>
+       </td>
+      </tr>
+    </tbody>
+  </table>
+    
+    <nav aria-label="...">
+      <ul class="pagination justify-content-center">
+        <li [ngClass]="{'active':p==pag}" class="page-item" *ngFor=" let i of pages; let p=index">
+          <a class="page-link" (click)="setPage(p,$event)">{{p}}</a>
+        </li>
+
+      </ul>
+    </nav>
+
+ 
+
+
+
+
+  </div>
+</div>
+
+
+

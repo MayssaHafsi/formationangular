@@ -1,0 +1,77 @@
+
+<div class="container spacer">
+  <div class="col-xs-6 .col-md-4 ">
+    <div class="card">
+      <div class="card-header bg-primary text-white">  <h3 style="text-align: center">Nouveau Formateur</h3>  </div>
+
+      <div class="card-body">
+  <div class="form-row">
+    <div class="col-md-3 mb-3" >
+      <label>Cin</label>
+      <input type="text" [class.is-invalid]="cin.invalid && cin.touched"  class="form-control"  placeholder="Cin" [(ngModel)]="formateur.cin" #cin="ngModel" required  required>
+      <div *ngIf="cin.invalid && (cin.dirty || cin.touched)" >
+
+          <small class="text-danger" *ngIf="cin?.errors.required">
+      <p>    cin is required. </p> 
+          </small>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3 ">
+      <label>Nom</label>
+      
+   
+      <input type="text" [class.is-invalid]="nom.invalid && nom.touched"  class="form-control" [(ngModel)]="formateur.nom"  #nom="ngModel" placeholder="name" required  required>
+      <div *ngIf="nom.invalid && (nom.dirty || nom.touched)">
+
+          <small class="text-danger" *ngIf="nom?.errors.required">
+        <p>   nom is required. </p> 
+          </small>
+        
+    </div>
+  </div>
+ 
+
+    <div class="col-md-4 mb-3">
+      <label>Prénom</label>
+      <input type="text" [class.is-invalid]="prenom.invalid && prenom.touched"  class="form-control" [(ngModel)]="formateur.prenom" #prenom="ngModel"  placeholder="prenom" required>
+      <div *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)">
+
+          <small class="text-danger" *ngIf="prenom?.errors.required">
+      <p>     prénom is required. </p> 
+          </small>
+        
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-7 mb-3">
+      <label >Email</label>
+      <input type="text" class="form-control" [class.is-invalid]="email.invalid && email.touched"  [(ngModel)]="formateur.email"  #email="ngModel"  placeholder="email" required email>
+      <div *ngIf="email.invalid && (email.dirty || email.touched)">
+
+          <small class="text-danger" *ngIf="email?.errors.required">
+            <p>   email is required.</p> 
+          </small>
+          <small class="text-danger" *ngIf="email?.errors.email">
+            <p>   email not valid </p> 
+             </small>
+    </div>
+    </div>
+    <div class="col-md-5 mb-3">
+      <label>tel</label>
+      <input type="text" [class.is-invalid]="tel.invalid && tel.touched"  class="form-control" #tel="ngModel"   placeholder="Numero telephone" [(ngModel)]="formateur.numeroTelephone" required>
+      <div *ngIf="tel.invalid && (tel.dirty || tel.touched)">
+
+          <small class="text-danger" *ngIf="tel?.errors.required">
+            <p>    Numero téléphone is required. </p> 
+          </small>
+        
+    </div>
+    </div>
+    </div>
+  </div>
+  <button class="btn btn-primary" [disabled]="cin.invalid || nom.invalid || tel.invalid || prenom.invalid || email.invalid" type="submit" (click)="save()">Ajouter</button>
+      </div>
+    </div>
+  </div>
+</div>

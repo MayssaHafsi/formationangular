@@ -1,0 +1,109 @@
+<div class="container spacer">
+  <div class="col-xs-6 .col-md-4 ">
+    <div class="card">
+      <div class="card-header bg-primary text-white">  <h3 style="text-align: center">Modifier Certification</h3>  </div>
+
+      <div class="card-body">
+  <div class="form-row">
+    
+
+      <div class="col-md-4 mb-3">
+          <label>Titre</label>
+          <div class="input-group">
+       
+          <input [(ngModel)]="certification.titre"  type="text" class="form-control"  placeholder="titre" >
+          
+        </div>
+      </div>
+     
+    
+        <div class="col-md-4 mb-3">
+          <label>Date Certification</label>
+          <input [(ngModel)]="certification.dateCertification"  type="date" class="form-control"   placeholder="" >
+         
+      </div>
+      
+      <div class="col-md-4 mb-3">
+          <label>Heure Certification</label>
+          <input [(ngModel)]="certification.timeCertification" type="time" class="form-control"   placeholder="prenom">
+         
+      </div>
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label >Lieu</label>
+          <input [(ngModel)]="certification.lieu" type="text" class="form-control"  required>
+       
+        </div>
+        <div class="col-md-4 mb-3">
+          <label>DateLimiteInscription</label>
+          <input [(ngModel)]="certification.dateLimiteInscription" type="date" class="form-control" >
+        
+        </div>
+        <div class="col-md-4 mb-3">
+            <label>Capacité</label>
+            <input [(ngModel)]="certification.capacite" type="number" class="form-control"    >
+          
+          </div>
+          <div class="col-md-4 mb-3">
+            <label>Salle Examen</label>
+            <input [(ngModel)]="certification.salleExamen" type="text" class="form-control"    >
+          
+          </div>
+
+        <!--
+                <div class="col-md-4 mb-3">
+                  <label>Theme</label>
+                  <div class="input-group">
+                  <select (change)="selected($event)" [(ngModel)]="them" class="form-control form-control-sm" id="exampleFormControlSelect3">
+                      <option  *ngFor=" let c of listTheme" [ngValue]="c" >{{c.nom}}</option>
+                   
+                    </select>
+               
+                      <button type="button" class="btn" ><i class="fa fa-plus"  ></i></button>
+                    
+                    </div>
+                    
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label>Niveau</label>
+                    <div class="input-group">
+                    <select [(ngModel)]="certification.niveau" class="form-control form-control-sm" id="exampleFormControlSelect3">
+                        <option *ngFor=" let c of listNiveau" [ngValue]="c" >{{c.nom}}</option>
+                     
+                      </select>
+                      <button type="button" class="btn"  ><i class="fa fa-plus"  ></i></button>
+                        </div>
+                  
+                  </div>
+                -->
+                <div class="col-md-4 mb-3">
+                    <label>Description</label>
+                    <textarea  [(ngModel)]="certification.description" class="form-control" id="exampleTextarea1" rows="4" cols="50"></textarea>
+                  
+                  </div>
+          
+               <!--   <div class="col-md-4 mb-3">
+                    <label>Domaine</label>
+                    <div class="input-group">
+                    <select  class="form-control form-control-sm" id="exampleFormControlSelect3">
+                        <option  *ngFor=" let c of listDomaine" [ngValue]="c" >{{c.nom}}</option>
+                     
+                      </select>
+                 
+                        <button type="button" class="btn" ><i class="fa fa-plus"  ></i></button>
+                      
+                      </div>
+                      
+                  </div>
+                  -->
+            </div>
+    </div>
+      <button class="btn btn-primary" type="submit" (click)="update()">Modifier</button>
+
+
+      
+          </div>
+        </div>
+      </div>
+
+</div>

@@ -1,0 +1,233 @@
+
+<div class="container spacer">
+  <div class="col-xs-6 .col-md-4 " *ngIf="mode==1">
+    <div class="card">
+      <div class="card-header bg-primary text-white">  <h3 style="text-align: center">Nouveau Formation Non Certifiant</h3>  </div>
+
+      <div class="card-body">
+  <div class="form-row">
+    
+
+      <div class="col-md-4 mb-3">
+          <label>Nom</label>
+          <div class="input-group">
+       
+          <input   type="text" class="form-control" [(ngModel)]="fo.nom" placeholder="name" >
+          
+        </div>
+      </div>
+     
+    
+        <div class="col-md-4 mb-3">
+          <label>DateDebut</label>
+          <input type="date" class="form-control" [(ngModel)]="fo.datedebut"  placeholder="prenom" >
+         
+      </div>
+      
+      <div class="col-md-4 mb-3">
+          <label>DateFin</label>
+          <input type="date" class="form-control" [(ngModel)]="fo.datefin"  placeholder="prenom">
+         
+      </div>
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label >Niveau</label>
+          <input type="text" class="form-control" [(ngModel)]="fo.niveau" required>
+       
+        </div>
+        <div class="col-md-4 mb-3">
+          <label>DateLimiteInscription</label>
+          <input type="date" class="form-control" [(ngModel)]="fo.dateLimiteInscription"   >
+        
+        </div>
+        <div class="col-md-4 mb-3">
+            <label>Capacité</label>
+            <input type="number" class="form-control" [(ngModel)]="fo.capacite"   >
+          
+          </div>
+        
+
+        
+                <div class="col-md-4 mb-3">
+                  <ng-template #content let-modal class="ii"> 
+                    <div class="modal-header" style="background-color: white">
+                      <h3 class="modal-title" id="modal-basic-title">Nouveau Domaine</h3>
+                      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body" style="background-color: white">
+                     
+                        <div class="form-group">
+                          <label ><p style="font-size: 20px">Nom domaine</p></label>
+                          <div class="input-group">
+                            <input type="text" style="border:2px solid #E7EBEC;"  [class.is-invalid]="names.invalid && names.touched" #names="ngModel" required   [(ngModel)]="domaine.nom" class="form-control" >
+                          
+                          </div>
+                        </div>
+                        <div *ngIf="names.invalid && (names.dirty || names.touched)">
+      
+                            <small class="text-danger" *ngIf="names?.errors.required">
+                              Name is required.
+                            </small>
+                          </div>
+                    </div>
+                    <div class="modal-footer" style="background-color: white">
+                      <button type="button" [disabled]="names.invalid" class="btn btn-outline-primary" (click)="saveDomaine()">Save</button>
+                    </div>
+                  </ng-template>
+                      
+                  <label>Domaine</label>
+                  <div class="input-group">
+                  <select [(ngModel)]="fo.domaine"  name="formtr" class="form-control form-control-sm" id="exampleFormControlSelect3">
+                      <option  *ngFor=" let c of listDomaine" [ngValue]="c">{{c.nom}}</option>
+                   
+                    </select>
+              
+                      <button type="button" class="btn" (click)="open(content)" ><i class="fa fa-plus"  ></i></button>
+                    
+                    </div>
+                
+                </div>
+                <div class="col-md-4 mb-3">
+
+                    <ng-template #contents let-modal class="ii"> 
+                        <div class="modal-header" style="background-color: white">
+                          <h3 class="modal-title" id="modal-basic-title">Nouveau Theme</h3>
+                          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body" style="background-color: white">
+                         
+                            <div class="form-group">
+                              <label ><p style="font-size: 20px">Nom Theme</p></label>
+                              <div class="input-group">
+                                <input type="text" style="border:2px solid #E7EBEC;"  [class.is-invalid]="name.invalid && name.touched" #name="ngModel" required   [(ngModel)]="theme.nom" class="form-control" >
+                              
+                              </div>
+                            </div>
+                            <div *ngIf="name.invalid && (name.dirty || name.touched)">
+          
+                                <small class="text-danger" *ngIf="name?.errors.required">
+                                  Name is required.
+                                </small>
+                              </div>
+                        </div>
+                        <div class="modal-footer" style="background-color: white">
+                          <button type="button" [disabled]="name.invalid" class="btn btn-outline-primary" (click)="saveTheme()">Save</button>
+                        </div>
+                      </ng-template>
+                          
+
+
+                    <label>Theme</label>
+                    <div class="input-group">
+                    <select [(ngModel)]="fo.theme"  name="formtr" class="form-control form-control-sm" id="exampleFormControlSelect3">
+                        <option  *ngFor=" let c of listTheme" [ngValue]="c">{{c.nom}}</option>
+                     
+                      </select>
+                      <button type="button" (click)="opens(contents)" class="btn"  ><i class="fa fa-plus"  ></i></button>
+                        </div>
+                  
+                  </div>
+                <div class="col-md-4 mb-3">
+                    <label>Description</label>
+                    <textarea [(ngModel)]="fo.description" class="form-control" id="exampleTextarea1" rows="4" cols="50"></textarea>
+                  
+                  </div>
+          
+  
+            </div>
+    </div>
+      <button class="btn btn-primary" type="submit" (click)="save()">Ajouter</button>
+
+
+      
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+    <!--  <div class="col-xs-6 .col-md-4 " *ngIf="mode==2">
+          <div class="card">
+            <div class="card-header bg-primary text-white">  <h3 style="text-align: center">Nouveau Domaine</h3>  </div>
+      
+            <div class="card-body">
+      
+              <div class="form-group">
+                <label><h6>Nom:</h6></label>
+                <div class="form-row">
+                <input type="text"  class="form-control col-md-4" [(ngModel)]="domaine.nom"  #names="ngModel" required  style="margin-right: 40px;" >
+               
+                <button type="submit" style="margin-right: 20px" [disabled]="names.invalid"  class="btn btn-primary align-content-lg-center col-lg-2"  (click)="saveDomaine()">Ajouter</button>
+                <a (click)="retour()"   class="btn btn-success" style="margin-top: 0px" ><i class="fa fa-arrow-left" aria-hidden="true" style="
+ 
+
+                  color: white;
+                  font-size: 15px;"></i></a> 
+              </div>
+                <div *ngIf="names.invalid && (names.dirty || names.touched)">
+      
+                  <small class="text-danger" *ngIf="names?.errors.required">
+                    Name is required.
+                  </small>
+                </div>
+                </div>
+      
+      
+      
+              </div>
+      
+          </div>
+        </div>
+
+      -->
+        <div class="col-xs-6 .col-md-4 " *ngIf="mode==3">
+          <div class="card">
+            <div class="card-header bg-primary text-white">  <h3 style="text-align: center">Nouveau Theme</h3>  </div>
+      
+            <div class="card-body">
+      
+              <div class="form-group">
+                <label><h6>Nom Theme:</h6></label>
+                <div class="form-row">
+                <input type="text"  class="form-control col-md-4" [(ngModel)]="theme.nom"  #name="ngModel" required  style="margin-right: 40px;" >
+               
+                <button type="submit" style="margin-right: 20px" [disabled]="name.invalid"  class="btn btn-primary align-content-lg-center col-lg-2"  (click)="saveTheme()">Ajouter</button>
+                <a (click)="retour()"   class="btn btn-success" style="margin-top: 0px" ><i class="fa fa-arrow-left" aria-hidden="true" style="
+ 
+
+                  color: white;
+                  font-size: 15px;"></i></a> 
+              </div>
+                <div *ngIf="name.invalid && (name.dirty || name.touched)">
+      
+                  <small class="text-danger" *ngIf="name?.errors.required">
+                    Name is required.
+                  </small>
+                </div>
+                </div>
+      
+      
+      
+              </div>
+      
+          </div>
+        </div>
+
+
+       
+
+
+
+
+
+
+
+    </div>
+    
+

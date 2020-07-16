@@ -1,0 +1,50 @@
+<div class="container spacer">
+    <div class="col-lg-13 ">
+      <div class="card">
+        <div class="card-header bg-primary text-white">  <h3 style="text-align: center">update Seance Formation</h3>  </div>
+  
+        <div class="card-body">
+        <!--   <h2 style="color: brown; font-size: 2.6rem;">Seance Formation:</h2> --> 
+  
+
+        <div class="input-group">
+        
+      
+          
+       
+          
+          </div>
+          <div class="input-row">
+              <div class="form-group">
+                  <label><h6>Date Jour</h6></label>
+                  <input type="date" class="form-control col-md-4"  [(ngModel)]="ff.datejour"/>
+        
+        
+                </div>
+          <div class="form-group">
+            <label><h6>Heure Debut</h6></label>
+            <input type="time" class="form-control col-md-4" style="margin-right: 10px"  [(ngModel)]="ff.heuredebut"/>
+  
+  
+          </div>
+          <div class="form-group">
+            <label><h6>Heure Fin</h6></label>
+            <input type="time" class="form-control col-md-4"  [(ngModel)]="ff.heurefin"/>
+  
+  
+          </div>
+
+          <div class="form-group">
+            <label><h6>Salle</h6></label>
+            <input type="text" class="form-control col-md-4"  [(ngModel)]="ff.salle"/>
+  
+  
+          </div>
+          <button type="submit" class="btn btn-primary col-md-3" style="margin-bottom: 10px" (click)="update()">Modifier</button>
+        </div>
+      </div>
+      </div>
+      </div>
+      </div>
+  
+  

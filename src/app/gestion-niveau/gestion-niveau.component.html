@@ -1,0 +1,89 @@
+<div class="row">
+<div class="col-md-6" style="margin-top: 50px"  >
+  <div class="card">
+      <div class="card-header bg-primary text-white">  <h3 style="text-align: center">Nouveau Niveau</h3>  </div>
+
+<div class="card-body">
+<div class="row" style="margin-left: 90px">
+
+<!--  <div>
+<strong>Code Theme:</strong>
+{{theme.id}}
+</div>-->
+<div style="margin-left: 10px">
+<strong>{{theme.nom}}</strong>
+
+</div>
+
+</div>
+    <div class="form-group">
+        <label><h6>Niveau:</h6></label>
+        <div class="form-row">
+        <input type="text" [class.is-invalid]="names.invalid && names.touched"  placeholder="Nom Niveau" [(ngModel)]="niveau.nom" #names="ngModel"  class="form-control col-md-6"    required  style="margin-right: 40px;" >
+       
+        <button type="submit" [disabled]="names.invalid"    class="btn btn-primary align-content-lg-center col-lg-3"  (click)="save()">Ajouter</button>
+        </div>
+ <div *ngIf="names.invalid && (names.dirty || names.touched)">
+
+          <small class="text-danger" *ngIf="names?.errors.required">
+            Name Niveau is required.
+          </small>
+        </div>
+   
+        </div>
+</div>
+  </div>
+
+
+
+</div>
+
+<div class="col-md-6" style="margin-top: 50px"  *ngIf="listeNiveau.length>0">
+    <div class="card">
+        <div class="card-header bg-info text-white">  <h3 style="text-align: center">Liste des Niveaux</h3>  </div>
+  
+  <div class="card-body">
+    <table class="table" >
+      <thead class="thead-dark">
+      <tr>
+
+        <th scope="col">ID</th>
+        <th scope="col">Nom Niveau</th>
+
+        <th scope="col">Action</th>
+      </tr>
+      </thead>
+
+
+
+      <tbody> 
+      <tr *ngFor=" let c of listeNiveau">
+
+        <td> {{c.id}}</td>
+        <td>{{c.nom}}</td>
+
+
+        <td>
+
+      <!--    <a (click)="edit(c.id)"  class="btn btn-success" >Edit</a>
+          <a  (click)="delete(c)" class="btn btn-danger">Delete</a>
+         
+      -->
+
+             
+      <a (click)="edit(c.id)"   class="btn btn-success" style="margin-top: 0px" ><i class="fa fa-edit" aria-hidden="true"></i></a>
+      <a (click)="delete(c)"  class="btn btn-danger" style="margin-top: 0px" ><i class="fa fa-trash" aria-hidden="true"></i></a>
+     
+        </td>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+    </div>
+  
+  
+  
+  </div>
+
+</div>

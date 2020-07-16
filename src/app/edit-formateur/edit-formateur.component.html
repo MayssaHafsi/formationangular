@@ -1,0 +1,51 @@
+
+<div class="container spacer">
+  <div class="col-xs-6 .col-md-4 ">
+    <div class="card">
+      <div class="card-header bg-primary text-white">  <h3 style="text-align: center">Update Formateur</h3>  </div>
+
+      <div class="card-body">
+        <div class="form-row">
+          <div class="col-md-3 mb-3">
+            <label>Cin</label>
+            <input type="text" class="form-control" placeholder="Cin" [(ngModel)]="formateur.cin" required>
+            <div class="valid-tooltip">
+              Looks good!
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label>Nom</label>
+            <input type="text" class="form-control" [(ngModel)]="formateur.nom"  placeholder="name" required>
+            <div *ngIf="">
+              Looks good!
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label>Prenom</label>
+            <input type="text" class="form-control" [(ngModel)]="formateur.prenom"  placeholder="prenom" required>
+            <div class="valid-tooltip">
+              Looks good!
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-7 mb-3">
+              <label >Email</label>
+              <input type="email" class="form-control" [(ngModel)]="formateur.email"  placeholder="email" required>
+              <div class="invalid-tooltip">
+                Please provide a valid email.
+              </div>
+            </div>
+            <div class="col-md-5 mb-3">
+              <label>Numerotelephone</label>
+              <input type="text" class="form-control" placeholder="Numero telephone" [(ngModel)]="formateur.numeroTelephone" required>
+              <div class="invalid-tooltip">
+                Please provide a valid state.
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-primary" type="submit" (click)="update()">Modifier</button>
+      </div>
+    </div>
+  </div>
+</div>

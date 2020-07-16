@@ -1,0 +1,13 @@
+<div class="col-xs-6 .col-md-4 ">
+    <div class="card">
+      <div class="card-header bg-primary text-white">  <h3 style="text-align: center">Modification Niveau</h3>  </div>
+
+      <div class="card-body">
+
+        <div class="form-group">
+          <label><h6>Nom Niveau:</h6></label>
+          <div class="form-row">
+          <input type="text" placeholder="Nom Théme"  [(ngModel)]="niveau.nom"   class="form-control col-md-4"    required  style="margin-right: 40px;" >
+         
+          <button type="submit"   class="btn btn-primary align-content-lg-center col-lg-2"  (click)="edit()">Modifier</button>
+          </div>

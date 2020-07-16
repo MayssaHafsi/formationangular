@@ -1,0 +1,171 @@
+
+
+<div class="container spacer">
+  <div class="col-lg-16" *ngIf="mode==1">
+    <div class="card">
+      <div class="card-header bg-primary text-white">  <h3 style="text-align: center"> Liste des Demandes d'inscriptions </h3>
+
+
+      </div>
+
+      <div class="card-body">
+        <div class="form-row">
+      
+          <select [(ngModel)]="mc"  class="mdb-select md-form col-md-3" >
+            <option value="" disabled selected>Choose your option</option>
+            <option value="ia">Inscription En Attente</option>
+            <option value="ic">Inscription Confirmé</option>
+            <option value="ir">Inscription Refusé</option>
+          </select>
+            <button (click)="chercher()"  class="btn btn-primary col-md-0 "><i style="margin-top: 10px"  class="fa fa-search " style="font-size: 14px"   aria-hidden="true"></i> </button>
+
+          </div>
+     
+
+
+
+
+
+
+        <table class="table" style="margin-top: 40px">
+          <thead class="thead-dark">
+          <tr>
+
+            <th scope="col">Cin </th>
+     
+            <th scope="col">Date Inscription </th>
+            <th scope="col">Certification </th>
+            <th scope="col">Date Certification </th>
+    
+            <th scope="col">Place Reservé </th>
+
+
+
+            <th scope="col">Action</th>
+          </tr>
+          </thead>
+
+          <tr *ngFor=" let c of liste?.content">
+
+              <td> {{c.demandeurCertification.cin}}
+              <a (click)="envoyer(c)" class="btn">  <i class="fa fa-eye" style="color:darkgrey;margin-left: 30px" ></i></a>
+              </td>
+       
+              <td>{{c.dateInscription}}</td>
+          
+              <td>{{c.certification.titre}}</td>
+              <td>{{c.certification.dateCertification}}</td>  
+              <td>{{c.certification.nbrPlaceReserve+' / '+c.certification.capacite}}</td>  
+            
+  <td>
+                <a (click)="confirmer(c)" *ngIf="c.etat== 'EN ATTENTE' || c.etat == 'REFUSE' " style="margin-top: 13px" class="btn btn-success" ><i class="fa fa-check" aria-hidden="true"></i></a>
+                <a  (click)="refuser(c)" *ngIf="c.etat== 'EN ATTENTE' || c.etat == 'CONFIRME' " style="margin-top: 13px" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
+              </td>
+  
+            </tr>
+
+          <tbody> 
+
+       
+          </tbody>
+        </table>
+
+    
+      
+     
+    
+
+
+
+      </div>
+      <div class="card-footer">  <nav aria-label="...">
+          <ul class="pagination justify-content-center">
+            <li [ngClass]="{'active':p==pag}" class="page-item" *ngFor=" let i of pages; let p=index">
+              <a class="page-link" (click)="setPage(p,$event)">{{p}}</a>
+            </li>
+
+          </ul>
+        </nav></div>
+    </div>
+
+  </div>
+
+
+  
+  <div class="col-lg-12" *ngIf="mode==2">
+    <div class="card">
+      <div class="card-header bg-primary text-white">  <h3 style="text-align: center"> Information sur Demandeur </h3>
+
+
+      </div>
+
+      <div class="card-body">
+          <div class="row">
+            <fieldset  >
+              <legend>Cordonné Demandeur</legend>
+            <div>
+<div class="form-group">
+     <label class="control-label" ><h4  style="margin-right: 10px">Cin:</h4></label>
+<label> <h6>   {{dem.cin}} </h6></label>
+    </div>
+     
+    <div class="form-group">
+        <label class="control-label" ><h4  style="margin-right: 10px">Nom:</h4></label>
+   <label> <h6>   {{dem.nom}} </h6></label>
+       </div>
+       <div class="form-group">
+          <label class="control-label" ><h4  style="margin-right: 10px">Prénom:</h4></label>
+     <label> <h6>   {{dem.prenom}} </h6></label>
+         </div>
+         <div class="form-group">
+            <label class="control-label" ><h4  style="margin-right: 10px">Adresse Email:</h4></label>
+       <label> <h6>   {{dem.email}} </h6></label>
+           </div>
+
+           <div class="form-group">
+              <label class="control-label" ><h4  style="margin-right: 10px">Numéro télephone:</h4></label>
+         <label> <h6>   {{dem.numeroTelephone}} </h6></label>
+             </div>
+
+
+
+
+
+
+
+
+
+       
+    
+      
+     <button class="btn btn-primary col-md-2" (click)="mode=1"> OK</button>
+    
+    </div>
+  </fieldset>
+  
+<div style="margin-left: 260px">
+    <fieldset>
+        <legend>Participe</legend>
+    <ul class="list-group" *ngFor=" let c of lst">
+        <li class="list-group-item">
+        
+       <p>   {{c.certification.titre+' de '+c.certification.dateCertification+' a '+c.certification.timeCertification}} </p>
+        </li>
+        
+          </ul>
+        </fieldset>
+</div>
+
+      </div>
+ 
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+ </div>
+ 

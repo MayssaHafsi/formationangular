@@ -1,0 +1,32 @@
+
+
+<div class="container spacer">
+  <div class="col-xs-6 .col-md-4 ">
+    <div class="card">
+      <div class="card-header bg-primary text-white">  <h3 style="text-align: center">New Domaine</h3>  </div>
+
+      <div class="card-body">
+
+        <div class="form-group">
+          <label><h6>Nom:</h6></label>
+          <div class="form-row">
+          <input type="text"  class="form-control col-md-4" [(ngModel)]="domaine.nom"  #names="ngModel" required  style="margin-right: 40px;" >
+         
+          <button type="submit" [disabled]="names.invalid"  class="btn btn-primary align-content-lg-center col-lg-2"  (click)="save()">Ajouter</button>
+          </div>
+          <div *ngIf="names.invalid && (names.dirty || names.touched)">
+
+            <small class="text-danger" *ngIf="names?.errors.required">
+              Name is required.
+            </small>
+          </div>
+          </div>
+
+
+
+        </div>
+
+    </div>
+  </div>
+</div>
+

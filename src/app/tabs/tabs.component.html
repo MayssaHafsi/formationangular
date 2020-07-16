@@ -1,0 +1,109 @@
+<!--<div class="form-row" style="margin-bottom: 40px;margin-left: 80px">
+<div class="form-row" style="margin-right: 20px;">
+
+  <select [(ngModel)]="s"  class="mdb-select md-form " style="width: 220px; ">
+    
+    <option *ngFor=" let c of listDomaine" [ngValue]="c">{{c.nom}}</option>
+  </select>
+    <button (click)="chercher()"  class="btn btn-primary col-md-0 "><i style="margin-top: 10px"  class="fa fa-search " style="font-size: 14px"   aria-hidden="true"></i> </button>
+
+
+
+  </div>
+
+
+  <div class="form-row">
+    <select  class="mdb-select md-form " style="width: 205px;" >
+      <option  disabled selected>Choose your théme</option>
+ <option *ngFor=" let c of listTheme" [ngValue]="c">{{c.nom}}</option>
+    </select>
+      <button (click)="chercher()"  class="btn btn-primary col-md-0 "><i style="margin-top: 10px"  class="fa fa-search " style="font-size: 14px"   aria-hidden="true"></i> </button>
+    </div>
+
+  </div>
+
+-->
+
+<fieldset style="margin-bottom: 50px">
+<legend>Espace Recherche
+    <button type="button" class="btn" *ngIf='!showFile' (click)="showFiles(true)" >
+        <i class="fa fa-angle-down"></i></button>
+        <button type="button" *ngIf='showFile' class="btn" (click)="showFiles(false)" >
+            <i class="fa fa-angle-up"></i></button>
+
+</legend>
+<div class="form-row" [hidden]="!showFile">
+  <select [(ngModel)]="mc" class="mdb-select md-form col-md-3" >
+    <option value="" disabled selected>Choisir type formation</option>
+
+    <option value="fc">Formation certifié</option>
+    <option value="fnc">Formation non certifié</option>
+  </select>
+    <button (click)="chercherParType()"  class="btn btn-primary col-md-0 "><i style="margin-top: 10px"  class="fa fa-search " style="font-size: 14px"   aria-hidden="true"></i> </button>
+
+
+
+    <div style="margin-left: 20px;margin-right:10px"> Theme:</div>
+    <select [(ngModel)]="mct"  class="mdb-select md-form col-md-3" id="exampleFormControlSelect3">
+      <option  *ngFor=" let c of listTheme" [ngValue]="c.nom" >{{c.nom}}</option>
+    
+    </select> 
+          <button  (click)="chercherParNomTheme()"  class="btn btn-primary col-md-0 "><i style="margin-top: 10px"  class="fa fa-search " style="font-size: 14px"   aria-hidden="true"></i> </button>
+
+ <div style="margin-left: 20px;margin-right:10px"> Domaine:</div>
+ <select  [(ngModel)]="mcd" class="mdb-select md-form col-md-2" id="exampleFormControlSelect3">
+  <option  *ngFor=" let c of listDomaine" [ngValue]="c.nom" >{{c.nom}}</option>
+
+</select>    
+  <button (click)="chercherParNomDomaine()"  class="btn btn-primary col-md-0 "><i style="margin-top: 10px"  class="fa fa-search " style="font-size: 14px"   aria-hidden="true"></i> </button>
+    
+  </div>
+</fieldset>
+
+<div class="row">
+  <div class="col-md-6 grid-margin stretch-card" *ngFor="let c of liste?.content" >
+    <div class="card">
+      <div class="card-body">
+
+        <ngb-tabset class="tab-basic">
+
+          <ngb-tab title="Formation">
+            <ng-template ngbTabContent>
+              <div class="row" style="margin-bottom: 40px">
+                <div class="col-md-4"><img class="img-fluid w-100 rounded" src="assets/images/samples/300x300/imageformation.jpg" alt=""></div>
+                <div class="col-md-8">
+                  <h5 class="mb-3">{{c.nom}}</h5>
+                  <p>{{c.description}}</p>
+                </div>
+              </div>
+             <div>
+              <div class="form-row">
+                <button  type="button" style="margin-right: 5px" class="btn btn-outline-primary" (click)="detailler(c.id)">Detail</button>
+                <button type="button" class="btn btn-outline-danger" (click)="inscrire(c.id)">Inscription</button>
+              </div>
+            </div>
+            </ng-template>
+            
+          </ngb-tab>
+        </ngb-tabset>
+        
+      </div>
+
+   
+    </div>
+
+
+  </div>
+
+ <!--
+    <nav aria-label="...">
+        <ul class="pagination justify-content-center">
+          <li [ngClass]="{'active':p==pag}" class="page-item" *ngFor=" let i of pages; let p=index">
+            <a class="page-link" (click)="setPage(p,$event)">{{p}}</a>
+          </li>
+  
+        </ul>
+      </nav>
+-->
+</div>
+

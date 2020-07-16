@@ -1,0 +1,94 @@
+
+<div class="container spacer">
+  <div class="col-lg-13 " *ngIf="mode==1">
+    <div class="card">
+      <div class="card-header bg-primary text-white">  <h3 style="text-align: center">Inscription</h3>  </div>
+
+      <div class="card-body">
+<div style=" margin-bottom: 50px;" class="form-group">
+        <h2 style="color: brown; font-size: 2.6rem;"> {{frm.nom  }} de {{frm.datedebut}} a {{frm.datefin}} </h2>
+</div>
+       
+
+
+
+        <div class="form-row">
+          <div class="col-md-3 mb-3">
+            <label>Cin</label>
+            <input type="text" class="form-control" [class.is-invalid]="cin.invalid && cin.touched"  #cin="ngModel"  placeholder="Cin" [(ngModel)]="demandeur.cin" required>
+            <div *ngIf="cin.invalid && (cin.dirty || cin.touched)" >
+
+              <small class="text-danger" *ngIf="cin?.errors.required">
+          <p>    cin is required. </p> 
+              </small>
+            </div>
+          </div>
+      
+          <div class="col-md-4 mb-3 ">
+            <label>Nom</label>
+            <div class="input-group">
+         
+            <input type="text"  [class.is-invalid]="nom.invalid && nom.touched"  #nom="ngModel"   placeholder="prenom" class="form-control"  placeholder="name" [(ngModel)]="demandeur.nom" required>
+            <div *ngIf="nom.invalid && (nom.dirty || nom.touched)">
+
+              <small class="text-danger" *ngIf="nom?.errors.required">
+            <p>   nom is required. </p> 
+              </small>
+            
+        </div>
+          </div>
+        </div>
+       
+      
+          <div class="col-md-4 mb-3">
+            <label>Prenom</label>
+            <input type="text" class="form-control" [class.is-invalid]="prenom.invalid && prenom.touched"  #prenom="ngModel"   placeholder="prenom" [(ngModel)]="demandeur.prenom" required>
+            <div *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)">
+
+              <small class="text-danger" *ngIf="prenom?.errors.required">
+          <p>     prenom is required. </p> 
+              </small>
+            
+        </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-7 mb-3">
+            <label >Email</label>
+            <input type="email" class="form-control" email [class.is-invalid]="email.invalid && email.touched"  #email="ngModel"  placeholder="email"[(ngModel)]="demandeur.email" required>
+            <div *ngIf="email.invalid && (email.dirty || email.touched)">
+
+              <small class="text-danger" *ngIf="email?.errors.required">
+                <p>   email is required.</p> 
+              </small>
+              <small class="text-danger" *ngIf="email?.errors.email">
+                <p>   email not valid </p> 
+                 </small>
+        </div>
+          </div>
+          <div class="col-md-5 mb-3">
+            <label>Numerotelephone</label>
+            <input type="text" [class.is-invalid]="tel.invalid && tel.touched"  #tel="ngModel"  class="form-control" placeholder="Numero telephone" [(ngModel)]="demandeur.numeroTelephone"  required>
+            <div *ngIf="tel.invalid && (tel.dirty || tel.touched)">
+
+              <small class="text-danger" *ngIf="tel?.errors.required">
+                <p>    Numero telephone is required. </p> 
+              </small>
+            
+        </div>
+          </div>
+          </div>
+        </div>
+
+        <button type="submit" [disabled]="cin.invalid || nom.invalid || tel.invalid || prenom.invalid || email.invalid" class="btn btn-primary" style="margin-bottom: 10px" (click)="inscrire()">S'inscrire</button>
+      </div>
+        
+</div>
+</div>
+</div>
+
+
+
+
+
+
+ 

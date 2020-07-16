@@ -1,0 +1,53 @@
+
+
+
+
+<div class="container spacer">
+  <div class="col-xs-6 .col-md-4 ">
+    <div class="card">
+      <div class="card-header bg-primary text-white">  <h3 style="text-align: center">Affecter nouvelle cour</h3>  </div>
+
+      <div class="card-body">
+        <div *ngIf="currentFileUpload" class="progress" class="col-md-7" style="margin-bottom: 20px">
+          <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+            aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:progress.percentage+'%'}">
+            {{progress.percentage}}%</div>
+        </div>
+        
+     <!--   <label class="btn btn-default">
+          <input type="file" (change)="selectFile($event)">
+        </label>
+      -->
+
+
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+          </div>
+          <div class="custom-file" class="col-md-6">
+            <input  type="file" class="custom-file-input" (change)="selectFile($event)">
+            <label class="custom-file-label"   >{{nom}}</label>
+          </div>
+          <button style="margin-left: 30px"  class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">Telécharger</button>
+        </div>
+       
+      </div>
+    
+
+
+
+      <div class="panel-heading"> <h4 style="margin-left: 25px">List des Cours </h4></div>
+      <ul style="margin-left: 30px" class="list-group" *ngFor="let file of fileUploads | async">
+        <li class="list-group-item col-md-4">
+          <p>
+          <app-details-upload [fileUpload]='file'  style="margin-right: 50px"></app-details-upload>
+          <a (click)="delete(file.id)"  class="btn btn-danger" style="margin-top: 0px" ><i class="fa fa-trash" aria-hidden="true"></i></a>
+        </p>
+        </li>
+      </ul>
+
+
+
+    </div>
+  </div>
+</div>

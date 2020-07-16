@@ -1,0 +1,213 @@
+<div class="container spacer">
+  <div class="col-xs-6 .col-md-8 ">
+    <div class="card">
+      <div class="card-header bg-primary text-white">  <h3 style="text-align: center">Modifier Formation</h3>  </div>
+
+    <div class="card-body">
+  <div class="form-row">
+    
+
+      <div class="col-md-4 mb-3">
+          <label>Nom</label> 
+          <div class="input-group">
+       
+          <input   type="text" class="form-control" [(ngModel)]="fo.nom" placeholder="Saisir le nom de la formation" required>
+          
+        </div>
+      </div>
+     
+     
+        
+        <div class="col-md-4 mb-3">
+          <label>Date-Début</label>
+          <input type="date" class="form-control" [(ngModel)]="fo.datedebut"  placeholder="" required >
+         
+      </div>
+    
+      
+      <div class="col-md-4 mb-3">
+          <label>Date-Fin</label>
+          <input type="date" class="form-control" [(ngModel)]="fo.datefin"  placeholder="prenom" required>
+         
+      </div>
+      
+        <div class="col-md-4 mb-3">
+          <label >Prix</label>
+          <input type="text" class="form-control" [(ngModel)]="fo.prix" required placeholder="saisir le Prix" required>
+       
+        </div>
+        <div class="col-md-4 mb-3">
+          <label>Date-Limite-Inscription</label>
+          <input type="date" class="form-control" [(ngModel)]="fo.dateLimiteInscription"   required>
+        
+        </div>
+        <div class="col-md-4 mb-3">
+            <label>Capacité</label>
+            <input type="number" class="form-control" [(ngModel)]="fo.capacite"  placeholde="saisir le nombre maximum du place" required>
+          
+          </div>
+          <div class="col-md-4 mb-3">
+            <label>Formateur</label>
+            <select [(ngModel)]="fo.formateur"  name="formtr" class="form-control form-control-sm" id="exampleFormControlSelect3" value="fo.formateur.nom">
+             <option  *ngFor=" let f of listFormateur" [ngValue]="f" selected="selected">{{f.nom}}</option>
+            </select>
+          
+          </div>
+          <div class="col-md-4 mb-3">
+            <label>Admin</label>
+            <select [(ngModel)]="fo.user"  name="formtr" class="form-control form-control-sm" id="exampleFormControlSelect3">
+              <option  *ngFor=" let u of listUser" [ngValue]="u">{{u.nom}}</option>
+           
+            </select>
+          
+          </div>
+          <div class="col-md-4 mb-3">
+            <label>Type-formation</label>
+            <select  [(ngModel)]="fo.type" name="type" class="form-control form-control-sm" id="type">
+              <option value="" disabled selected hidden>Type formation</option>
+              <option value="certifié">certifié</option>
+              <option value="non certifié">Non certifé</option>
+           
+           
+            </select>
+          
+          </div>
+          <div class="col-md-4 mb-3">
+            <label>Catégorie</label>
+            <select  [(ngModel)]="fo.cat" name="categorie" class="form-control form-control-sm" id="cat">
+              <option value="" disabled selected hidden>Catégorie formation</option>
+              <option value="particulier">particulier</option>
+              <option value="professionnel">professionnel</option>
+
+           
+            </select>
+          
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <ng-template #content let-modal class="ii"> 
+                <div class="modal-header" style="background-color: white">
+                  <h3 class="modal-title" id="modal-basic-title">Nouveau Théme</h3>
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body" style="background-color: white">
+                 
+                    <div class="form-group">
+                      <label ><p style="font-size: 20px">Nom Théme</p></label>
+                      <div class="input-group">
+                        <input type="text" style="border:2px solid #E7EBEC;"  [class.is-invalid]="names.invalid && names.touched" #names="ngModel" required   [(ngModel)]="domaine.nom" class="form-control" >
+                      
+                      </div>
+                    </div>
+                    <div *ngIf="names.invalid && (names.dirty || names.touched)">
+  
+                        <small class="text-danger" *ngIf="names?.errors.required">
+                          Name is required.
+                        </small>
+                      </div>
+                </div>
+                <div class="modal-footer" style="background-color: white">
+                  <button type="button" [disabled]="names.invalid" class="btn btn-outline-primary" (click)="saveTheme()">Save</button>
+                </div>
+              </ng-template>
+         
+          <label>Théme</label>
+          <div class="input-group">
+          <select [(ngModel)]="fo.theme"  name="formtr" class="form-control form-control-sm" id="exampleFormControlSelect3" value="fo.theme.nom">
+              <option  *ngFor=" let n of listTheme" [ngValue]="n">{{n.nom}}</option>
+           
+            </select>
+      
+              <button type="button" class="btn" (click)="open(content)" ><i class="fa fa-plus"  ></i></button>
+            
+            </div>
+        
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <ng-template #content let-modal class="ii"> 
+              <div class="modal-header" style="background-color: white">
+                <h3 class="modal-title" id="modal-basic-title">Nouveau Domaine</h3>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body" style="background-color: white">
+               
+                  <div class="form-group">
+                    <label ><p style="font-size: 20px">Nom domaine</p></label>
+                    <div class="input-group">
+                      <input type="text" style="border:2px solid #E7EBEC;"  [class.is-invalid]="names.invalid && names.touched" #names="ngModel" required   [(ngModel)]="domaine.nom" class="form-control" >
+                    
+                    </div>
+                  </div>
+                  <div *ngIf="names.invalid && (names.dirty || names.touched)">
+
+                      <small class="text-danger" *ngIf="names?.errors.required">
+                        Name is required.
+                      </small>
+                    </div>
+              </div>
+              <div class="modal-footer" style="background-color: white">
+                <button type="button" [disabled]="names.invalid" class="btn btn-outline-primary" (click)="saveDomaine()">Save</button>
+              </div>
+            </ng-template>
+       
+        <label>Domaine</label>
+        <div class="input-group">
+        <select [(ngModel)]="fo.domaine"  name="formtr" class="form-control form-control-sm" id="exampleFormControlSelect3" value="fo.domaine.nom">
+            <option  *ngFor=" let c of listDomaine" [ngValue]="c">{{c.nom}}</option>
+         
+          </select>
+    
+            <button type="button" class="btn" (click)="open(content)" ><i class="fa fa-plus"  ></i></button>
+          
+          </div>
+      
+      </div>
+       
+          <div class="col-md-4 mb-3">
+            <label>Niveau</label>
+            <select  [(ngModel)]="fo.niveau" name="niveau" class="form-control form-control-sm" id="niveau">
+              <option value="" disabled selected hidden>Niveau formation</option>
+              <option value="débutant">Débutant</option>
+              <option value="avancer">avancé</option>
+              <option value="moyen">Moyen</option>
+
+           
+            </select>
+          
+          </div>
+        
+
+        
+                
+
+                
+
+                <div class="col-md-6 mb-3">
+                    <label>Plan de formation</label>
+                    <textarea [(ngModel)]="fo.description" class="form-control" id="exampleTextarea1" rows="8" cols="30"></textarea>
+                  
+                  </div>
+
+
+                 
+          
+  
+            </div>
+    </div>
+    <div class="col-md-12 mb-3">
+      <button class="btn btn-primary float-right" type="submit" (click)="update()" style="width:100px" >Modifier</button>
+      </div>
+
+      
+      </div>
+      </div>
+     
+       </div>
+      
+  
+  

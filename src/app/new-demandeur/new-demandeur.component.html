@@ -1,0 +1,53 @@
+
+<div class="container spacer">
+  <div class="col-xs-6 .col-md-4 ">
+    <div class="card">
+      
+
+      <div class="card-body">
+  <div class="form-row">
+    <div class="col-md-3 mb-3">
+      <label>Cin</label>
+      <input type="text" class="form-control" placeholder="Cin" [(ngModel)]="demandeur.cin" required>
+  
+    </div>
+
+    <div class="col-md-4 mb-3 ">
+      <label>Nom</label>
+      <div class="input-group">
+   
+      <input type="text" class="form-control"  placeholder="name" [(ngModel)]="demandeur.nom" required>
+      
+    </div>
+  </div>
+ 
+
+    <div class="col-md-4 mb-3">
+      <label>Prenom</label>
+      <input type="text" class="form-control"   placeholder="prenom" [(ngModel)]="demandeur.prenom" required>
+      <div class="valid-tooltip">
+        Looks good!
+      </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-7 mb-3">
+      <label >Email</label>
+      <input type="email" class="form-control"   placeholder="email"[(ngModel)]="demandeur.email" required>
+      <div class="invalid-tooltip">
+        Please provide a valid email.
+      </div>
+    </div>
+    <div class="col-md-5 mb-3">
+      <label>Numerotelephone</label>
+      <input type="text" class="form-control" placeholder="Numero telephone" [(ngModel)]="demandeur.numeroTelephone"  required>
+      <div class="invalid-tooltip">
+        Please provide a valid state.
+      </div>
+    </div>
+    </div>
+  </div>
+  <button class="btn btn-primary" type="submit" (click)="save()">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
